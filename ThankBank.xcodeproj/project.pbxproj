@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		09303B2A1B2BFDA7001E3ED6 /* ChooseRewardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09303B291B2BFDA7001E3ED6 /* ChooseRewardController.swift */; };
+		09303B2F1B2C035F001E3ED6 /* RewardsTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09303B2E1B2C035F001E3ED6 /* RewardsTable.swift */; };
 		09EA94AC1B2BB39200D89834 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09EA94AB1B2BB39200D89834 /* AppDelegate.swift */; };
 		09EA94AE1B2BB39200D89834 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09EA94AD1B2BB39200D89834 /* MainController.swift */; };
 		09EA94B31B2BB39200D89834 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09EA94B21B2BB39200D89834 /* Images.xcassets */; };
@@ -27,6 +29,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		09303B291B2BFDA7001E3ED6 /* ChooseRewardController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChooseRewardController.swift; path = Controllers/ChooseRewardController.swift; sourceTree = "<group>"; };
+		09303B2E1B2C035F001E3ED6 /* RewardsTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RewardsTable.swift; path = Views/RewardsTable.swift; sourceTree = "<group>"; };
 		09EA94A61B2BB39200D89834 /* ThankBank.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ThankBank.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		09EA94AA1B2BB39200D89834 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		09EA94AB1B2BB39200D89834 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -58,6 +62,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		09303B2B1B2C0330001E3ED6 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				09303B2E1B2C035F001E3ED6 /* RewardsTable.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		09EA949D1B2BB39200D89834 = {
 			isa = PBXGroup;
 			children = (
@@ -82,6 +94,7 @@
 				09EA94AB1B2BB39200D89834 /* AppDelegate.swift */,
 				09EA94D21B2BBD8500D89834 /* Settings.swift */,
 				09EA94CC1B2BB43700D89834 /* Controllers */,
+				09303B2B1B2C0330001E3ED6 /* Views */,
 				09EA94D11B2BBB4400D89834 /* Resources */,
 				09EA94A91B2BB39200D89834 /* Supporting Files */,
 			);
@@ -116,6 +129,7 @@
 		09EA94CC1B2BB43700D89834 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				09303B291B2BFDA7001E3ED6 /* ChooseRewardController.swift */,
 				09EA94AD1B2BB39200D89834 /* MainController.swift */,
 				09EA94CD1B2BB6E600D89834 /* CheckInController.swift */,
 				09EA94CF1B2BB74D00D89834 /* ProfileController.swift */,
@@ -235,6 +249,8 @@
 				09EA94AE1B2BB39200D89834 /* MainController.swift in Sources */,
 				09EA94AC1B2BB39200D89834 /* AppDelegate.swift in Sources */,
 				09EA94CE1B2BB6E600D89834 /* CheckInController.swift in Sources */,
+				09303B2A1B2BFDA7001E3ED6 /* ChooseRewardController.swift in Sources */,
+				09303B2F1B2C035F001E3ED6 /* RewardsTable.swift in Sources */,
 				09EA94D01B2BB74D00D89834 /* ProfileController.swift in Sources */,
 				09EA94D31B2BBD8500D89834 /* Settings.swift in Sources */,
 			);
@@ -348,6 +364,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "";
 				INFOPLIST_FILE = ThankBank/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -360,6 +377,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "";
 				INFOPLIST_FILE = ThankBank/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
