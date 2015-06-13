@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		09303B2A1B2BFDA7001E3ED6 /* ChooseRewardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09303B291B2BFDA7001E3ED6 /* ChooseRewardController.swift */; };
 		09303B2F1B2C035F001E3ED6 /* RewardsTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09303B2E1B2C035F001E3ED6 /* RewardsTable.swift */; };
+		09C41B691B2C6CA000DA59A3 /* RewardDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C41B681B2C6CA000DA59A3 /* RewardDetailController.swift */; };
+		09C41B6B1B2C78E500DA59A3 /* Coupon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C41B6A1B2C78E500DA59A3 /* Coupon.swift */; };
+		09C41B6E1B2C7FC600DA59A3 /* ThankYouController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C41B6D1B2C7FC600DA59A3 /* ThankYouController.swift */; };
 		09EA94AC1B2BB39200D89834 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09EA94AB1B2BB39200D89834 /* AppDelegate.swift */; };
 		09EA94AE1B2BB39200D89834 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09EA94AD1B2BB39200D89834 /* MainController.swift */; };
 		09EA94B31B2BB39200D89834 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09EA94B21B2BB39200D89834 /* Images.xcassets */; };
@@ -16,6 +19,7 @@
 		09EA94CE1B2BB6E600D89834 /* CheckInController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09EA94CD1B2BB6E600D89834 /* CheckInController.swift */; };
 		09EA94D01B2BB74D00D89834 /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09EA94CF1B2BB74D00D89834 /* ProfileController.swift */; };
 		09EA94D31B2BBD8500D89834 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09EA94D21B2BBD8500D89834 /* Settings.swift */; };
+		6B68B600C1D5A08827E0152C /* libPods-ThankBank.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 235BECE2DB214BA815955A57 /* libPods-ThankBank.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,6 +35,10 @@
 /* Begin PBXFileReference section */
 		09303B291B2BFDA7001E3ED6 /* ChooseRewardController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChooseRewardController.swift; path = Controllers/ChooseRewardController.swift; sourceTree = "<group>"; };
 		09303B2E1B2C035F001E3ED6 /* RewardsTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RewardsTable.swift; path = Views/RewardsTable.swift; sourceTree = "<group>"; };
+		09C336BD1B2C408A0023ABEF /* ThankBank-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ThankBank-Bridging-Header.h"; sourceTree = "<group>"; };
+		09C41B681B2C6CA000DA59A3 /* RewardDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RewardDetailController.swift; path = Controllers/RewardDetailController.swift; sourceTree = "<group>"; };
+		09C41B6A1B2C78E500DA59A3 /* Coupon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Coupon.swift; path = Models/Coupon.swift; sourceTree = "<group>"; };
+		09C41B6D1B2C7FC600DA59A3 /* ThankYouController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ThankYouController.swift; path = ThankBank/Controllers/ThankYouController.swift; sourceTree = "<group>"; };
 		09EA94A61B2BB39200D89834 /* ThankBank.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ThankBank.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		09EA94AA1B2BB39200D89834 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		09EA94AB1B2BB39200D89834 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -42,6 +50,9 @@
 		09EA94CD1B2BB6E600D89834 /* CheckInController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CheckInController.swift; path = Controllers/CheckInController.swift; sourceTree = "<group>"; };
 		09EA94CF1B2BB74D00D89834 /* ProfileController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileController.swift; path = Controllers/ProfileController.swift; sourceTree = "<group>"; };
 		09EA94D21B2BBD8500D89834 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		235BECE2DB214BA815955A57 /* libPods-ThankBank.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ThankBank.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		412A0EBC776A64847824C612 /* Pods-ThankBank.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ThankBank.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ThankBank/Pods-ThankBank.debug.xcconfig"; sourceTree = "<group>"; };
+		AA0D3D7A4748E0BF581FDD14 /* Pods-ThankBank.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ThankBank.release.xcconfig"; path = "Pods/Target Support Files/Pods-ThankBank/Pods-ThankBank.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6B68B600C1D5A08827E0152C /* libPods-ThankBank.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,6 +74,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		05D5E82BE9BEA3FA2CBD1139 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				412A0EBC776A64847824C612 /* Pods-ThankBank.debug.xcconfig */,
+				AA0D3D7A4748E0BF581FDD14 /* Pods-ThankBank.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		09303B2B1B2C0330001E3ED6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -70,12 +91,24 @@
 			name = Views;
 			sourceTree = "<group>";
 		};
+		09C41B6C1B2C78E900DA59A3 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				09C41B6A1B2C78E500DA59A3 /* Coupon.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		09EA949D1B2BB39200D89834 = {
 			isa = PBXGroup;
 			children = (
+				09C41B6D1B2C7FC600DA59A3 /* ThankYouController.swift */,
 				09EA94A81B2BB39200D89834 /* ThankBank */,
 				09EA94BE1B2BB39200D89834 /* ThankBankTests */,
 				09EA94A71B2BB39200D89834 /* Products */,
+				05D5E82BE9BEA3FA2CBD1139 /* Pods */,
+				4CA0EECC09D68C35BD15A16A /* Frameworks */,
+				09C336BD1B2C408A0023ABEF /* ThankBank-Bridging-Header.h */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,6 +130,7 @@
 				09303B2B1B2C0330001E3ED6 /* Views */,
 				09EA94D11B2BBB4400D89834 /* Resources */,
 				09EA94A91B2BB39200D89834 /* Supporting Files */,
+				09C41B6C1B2C78E900DA59A3 /* Models */,
 			);
 			path = ThankBank;
 			sourceTree = "<group>";
@@ -133,6 +167,7 @@
 				09EA94AD1B2BB39200D89834 /* MainController.swift */,
 				09EA94CD1B2BB6E600D89834 /* CheckInController.swift */,
 				09EA94CF1B2BB74D00D89834 /* ProfileController.swift */,
+				09C41B681B2C6CA000DA59A3 /* RewardDetailController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -146,6 +181,14 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
+		4CA0EECC09D68C35BD15A16A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				235BECE2DB214BA815955A57 /* libPods-ThankBank.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -153,9 +196,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 09EA94C51B2BB39200D89834 /* Build configuration list for PBXNativeTarget "ThankBank" */;
 			buildPhases = (
+				6908EC0353A247023C190C9D /* Check Pods Manifest.lock */,
 				09EA94A21B2BB39200D89834 /* Sources */,
 				09EA94A31B2BB39200D89834 /* Frameworks */,
 				09EA94A41B2BB39200D89834 /* Resources */,
+				C1C0C5F5A71CCAC80A91EBC1 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -241,14 +286,50 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		6908EC0353A247023C190C9D /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C1C0C5F5A71CCAC80A91EBC1 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ThankBank/Pods-ThankBank-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		09EA94A21B2BB39200D89834 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09C41B6E1B2C7FC600DA59A3 /* ThankYouController.swift in Sources */,
 				09EA94AE1B2BB39200D89834 /* MainController.swift in Sources */,
+				09C41B6B1B2C78E500DA59A3 /* Coupon.swift in Sources */,
 				09EA94AC1B2BB39200D89834 /* AppDelegate.swift in Sources */,
 				09EA94CE1B2BB6E600D89834 /* CheckInController.swift in Sources */,
+				09C41B691B2C6CA000DA59A3 /* RewardDetailController.swift in Sources */,
 				09303B2A1B2BFDA7001E3ED6 /* ChooseRewardController.swift in Sources */,
 				09303B2F1B2C035F001E3ED6 /* RewardsTable.swift in Sources */,
 				09EA94D01B2BB74D00D89834 /* ProfileController.swift in Sources */,
@@ -362,27 +443,34 @@
 		};
 		09EA94C61B2BB39200D89834 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 412A0EBC776A64847824C612 /* Pods-ThankBank.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				INFOPLIST_FILE = ThankBank/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "5a733be0-e8b7-48af-9a8b-a00e79ad78d9";
+				SWIFT_OBJC_BRIDGING_HEADER = "ThankBank-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		09EA94C71B2BB39200D89834 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AA0D3D7A4748E0BF581FDD14 /* Pods-ThankBank.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				INFOPLIST_FILE = ThankBank/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "5a733be0-e8b7-48af-9a8b-a00e79ad78d9";
+				SWIFT_OBJC_BRIDGING_HEADER = "ThankBank-Bridging-Header.h";
 			};
 			name = Release;
 		};

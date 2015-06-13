@@ -11,17 +11,14 @@ import UIKit
 
 struct Colors {
   let White = UIColor(white: 1, alpha: 1)
-  let Black = UIColor(white: 0, alpha: 1)
-  let Primary = UIColor(red: (56/255.0), green: (170/255.0), blue: (255/255.0), alpha: 1)
+  let Grey = UIColor(white: 0.4, alpha: 1)
+  let BackgroundDark = UIColor(white: 0.2, alpha: 1)
+  let Black = UIColor(white: 0.1, alpha: 1)
+  let Primary = UIColor(red: (140/255.0), green: (198/255.0), blue: (63/255.0), alpha: 1)
   let Secondary = UIColor(red: (72/255.0), green: (84/255.0), blue: (255/255.0), alpha: 1)
 }
 
 struct Fonts {
-  let Default = UIFont(name: "HelveticaNeue-Light", size: 18.0);
-  let LargeHeading = UIFont(name: "HelveticaNeue-Light", size: 64.0)
-  let Heading = UIFont(name: "HelveticaNeue-Regular", size: 18.0)
-  let Caption = UIFont(name: "HelveticaNeue-Regular", size: 11.0)
-  let Coordinate = UIFont(name: "HelveticaNeue-Regular", size: 16.0)
-  let FormattedCoordinate = UIFont(name: "HelveticaNeue-Light", size: 16.0)
-  let Unit = UIFont(name: "HelveticaNeue-Bold", size: 14.0)
+  let Default = UIFont.systemFontOfSize(14.0)
+  let DefaultBold = UIFont.boldSystemFontOfSize(14.0)
 }

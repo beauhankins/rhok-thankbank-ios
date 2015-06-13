@@ -18,6 +18,6 @@ class ProfileController: UIViewController {
   }
   
   func layoutInterface() {
-    self.view.backgroundColor = Colors().White
+    view.backgroundColor = Colors().BackgroundDark
   }
 }
