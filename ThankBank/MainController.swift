@@ -13,7 +13,7 @@ class MainController: UIViewController {
   
   lazy var checkInButton: UIButton = {
     let button = UIButton()
-    button.setTranslatesAutoresizingMaskIntoConstraints(false)
+    button.translatesAutoresizingMaskIntoConstraints = false
     button.setTitle("Check In", forState: .Normal)
     button.setTitleColor(Colors().Black, forState: .Normal)
     button.addTarget(self, action: "checkInController", forControlEvents: .TouchUpInside)
@@ -22,7 +22,7 @@ class MainController: UIViewController {
   
   lazy var profileButton: UIButton = {
     let button = UIButton()
-    button.setTranslatesAutoresizingMaskIntoConstraints(false)
+    button.translatesAutoresizingMaskIntoConstraints = false
     button.setTitle("Profile", forState: .Normal)
     button.setTitleColor(Colors().Black, forState: .Normal)
     button.addTarget(self, action: "profileController", forControlEvents: .TouchUpInside)
@@ -50,13 +50,13 @@ class MainController: UIViewController {
   // MARK: - Navigation
   
   func checkInController() {
-    print("Navigation: Check-In Controller")
+    print("Navigation: Check-In Controller", appendNewline: false)
     let checkInController = CheckInController()
     navigationController?.pushViewController(checkInController, animated: true)
   }
   
   func profileController() {
-    print("Navigation: Profile Controller")
+    print("Navigation: Profile Controller", appendNewline: false)
     let checkInController = ProfileController()
     navigationController?.pushViewController(checkInController, animated: true)
   }

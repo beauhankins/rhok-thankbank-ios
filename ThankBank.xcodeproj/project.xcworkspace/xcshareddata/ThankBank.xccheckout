@@ -7,32 +7,32 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>679DAE04-1223-454E-9A4E-69B8A9CDF963</string>
 	<key>IDESourceControlProjectName</key>
-	<string>project</string>
+	<string>ThankBank</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>B9AF8EE65E6B32DC047109602A89874B3769E5CE</key>
-		<string>github.com:RHoKAustralia/ThankBank.git</string>
+		<key>A688EE7A1FD34E5BFEE84149BECC802B84543EF9</key>
+		<string>github.com:RHoKAustralia/brisbane-thankbank-ios.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>ThankBank.xcodeproj/project.xcworkspace</string>
+	<string>ThankBank.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>B9AF8EE65E6B32DC047109602A89874B3769E5CE</key>
+		<key>A688EE7A1FD34E5BFEE84149BECC802B84543EF9</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>github.com:RHoKAustralia/ThankBank.git</string>
+	<string>github.com:RHoKAustralia/brisbane-thankbank-ios.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>B9AF8EE65E6B32DC047109602A89874B3769E5CE</string>
+	<string>A688EE7A1FD34E5BFEE84149BECC802B84543EF9</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>B9AF8EE65E6B32DC047109602A89874B3769E5CE</string>
+			<string>A688EE7A1FD34E5BFEE84149BECC802B84543EF9</string>
 			<key>IDESourceControlWCCName</key>
 			<string>ThankBank</string>
 		</dict>
