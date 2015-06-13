@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>679DAE04-1223-454E-9A4E-69B8A9CDF963</string>
+	<key>IDESourceControlProjectName</key>
+	<string>project</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>B9AF8EE65E6B32DC047109602A89874B3769E5CE</key>
+		<string>github.com:RHoKAustralia/ThankBank.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>ThankBank.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>B9AF8EE65E6B32DC047109602A89874B3769E5CE</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>github.com:RHoKAustralia/ThankBank.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>B9AF8EE65E6B32DC047109602A89874B3769E5CE</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>B9AF8EE65E6B32DC047109602A89874B3769E5CE</string>
+			<key>IDESourceControlWCCName</key>
+			<string>ThankBank</string>
+		</dict>
+	</array>
+</dict>
+</plist>
