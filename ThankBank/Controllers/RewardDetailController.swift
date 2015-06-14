@@ -179,22 +179,24 @@ class RewardDetailController: UIViewController, UICollectionViewDelegate, UIColl
     let rewardName = _reward["name"] as! String
     let rewardRetailerName = _reward["partner_name"] as! String
     
-    manager.requestSerializer.setValue("aaiu73nklx0hhb0imn05ipz4dztbnlgonlnhmfjx", forHTTPHeaderField: "X-Auth-Token")
-    let parameters = ["facebook_uid":fbUserId!,
-//                      "image":imageData!,
-                      "coupon":["name":rewardName,"partner":["name":rewardRetailerName]]]
-    
-    manager.POST( "http://brisbane-thank-bank.herokuapp.com/api/v1/checkins",
-      parameters: parameters,
-      success: { (operation: AFHTTPRequestOperation!,responseObject: AnyObject!) in
-        print("JSON: \(responseObject)")
-        
-        let thankYouController = ThankYouController()
-        self.navigationController?.pushViewController(thankYouController, animated: true)
-      },
-      failure: { (operation: AFHTTPRequestOperation!,error: NSError!) in
-        print("Error: \(error.localizedDescription)")
-    })
+    let thankYouController = ThankYouController()
+    self.navigationController?.pushViewController(thankYouController, animated: true)
+    /*
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+      self.manager.requestSerializer.setValue("aaiu73nklx0hhb0imn05ipz4dztbnlgonlnhmfjx", forHTTPHeaderField: "X-Auth-Token")
+      let parameters = ["facebook_uid":self.fbUserId!,
+  //                      "image":imageData!,
+                        "coupon":["name":rewardName,"partner":["name":rewardRetailerName]]]
+      
+      self.manager.POST( "http://brisbane-thank-bank.herokuapp.com/api/v1/checkins",
+        parameters: parameters,
+        success: { (operation: AFHTTPRequestOperation!,responseObject: AnyObject!) in
+          print("JSON: \(responseObject)")
+        },
+        failure: { (operation: AFHTTPRequestOperation!,error: NSError!) in
+          print("Error: \(error.localizedDescription)")
+      })
+    }*/
   }
   
   func toggleRadioSelected(sender: AnyObject) {
@@ -223,7 +225,5 @@ class RewardDetailController: UIViewController, UICollectionViewDelegate, UIColl
     
     imageData = defaults.objectForKey("checkin_image") as? NSData
     fbUserId = defaults.stringForKey("checkin_facebook_uid")
-    
-    print("\(fbUserId!)")
   }
 }

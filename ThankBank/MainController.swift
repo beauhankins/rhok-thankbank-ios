@@ -87,75 +87,81 @@ class MainController: UIViewController {
   // MARK: - Navigation
   
   func checkInController() {
-    let checkInAlert = UIAlertController(title: "Please connect with facebook to win and share your prizes", message: nil, preferredStyle: .Alert)
-    
-    let cancelAction = UIAlertAction(title: "No Thanks", style: .Cancel, handler: { (action: UIAlertAction!) -> Void in
+    if FBSDKAccessToken.currentAccessToken() != nil {
+      self.getUserFBDetailsAsync()
       
-    })
-    let okAction = UIAlertAction(title: "OK", style: .Default, handler: { (action: UIAlertAction!) -> Void in
+      let checkInController = CheckInController()
+      self.navigationController?.pushViewController(checkInController, animated: true)
+    } else {
+      let checkInAlert = UIAlertController(title: "Please connect with facebook to win and share your prizes", message: nil, preferredStyle: .Alert)
       
-      if FBSDKAccessToken.currentAccessToken() != nil {
-        FBSDKGraphRequest(graphPath: "me", parameters: ["fields":"id,first_name,last_name,email"]).startWithCompletionHandler({ (connection: FBSDKGraphRequestConnection!, result: AnyObject!, error: NSError!) -> Void in
+      let cancelAction = UIAlertAction(title: "No Thanks", style: .Cancel, handler: { (action: UIAlertAction!) -> Void in
+        
+      })
+      let okAction = UIAlertAction(title: "OK", style: .Default, handler: { (action: UIAlertAction!) -> Void in
+        let login = FBSDKLoginManager()
+        login.logInWithReadPermissions(["email"]) { (result: FBSDKLoginManagerLoginResult!, error: NSError!) -> Void in
           if error != nil {
-            print(error?.description)
+            // Process error
+          } else if result.isCancelled {
+            // Handle cancellations
           } else {
-            print("Fetched facebook user: \(result)")
+            let checkInController = CheckInController()
+            self.navigationController?.pushViewController(checkInController, animated: true)
             
-            self.fbUserId = result["id"] as? String
-            let fbFirstName = result["first_name"] as! String
-            let fbLastName = result["last_name"] as! String
-            let fbEmail = result["email"] as! String
-            let fbAvatarUrl = "https://graph.facebook.com/\(self.fbUserId!)/picture?type=large&return_ssl_resources=1"
-            
-            self.manager.requestSerializer.setValue("aaiu73nklx0hhb0imn05ipz4dztbnlgonlnhmfjx", forHTTPHeaderField: "X-Auth-Token")
-            let userParameters = [ "user": ["facebook_uid":self.fbUserId!,
-              "email":fbEmail,
-              "first_name":fbFirstName,
-              "last_name":fbLastName,
-              "avatar_url":fbAvatarUrl] ]
-            
-            self.manager.POST( "http://brisbane-thank-bank.herokuapp.com/api/v1/users",
-              parameters: userParameters,
-              success: { (operation: AFHTTPRequestOperation!,responseObject: AnyObject!) in
-                print("JSON: \(responseObject)")
-                
-                self.saveDefaults()
-                
-                let checkInController = CheckInController()
-                self.navigationController?.pushViewController(checkInController, animated: true)
-              },
-              failure: { (operation: AFHTTPRequestOperation!,error: NSError!) in
-                print("Error: \(error.localizedDescription)")
-            })
+            self.getUserFBDetailsAsync()
           }
-        })
-      }
+        }
+      })
       
-//      let login = FBSDKLoginManager()
-//      login.logInWithReadPermissions(["email"]) { (result: FBSDKLoginManagerLoginResult!, error: NSError!) -> Void in
-//        if error != nil {
-//          // Process error
-//        } else if result.isCancelled {
-//          // Handle cancellations
-//        } else {
-//          
-//        }
-//      }
-    })
-    
-    checkInAlert.addAction(cancelAction)
-    checkInAlert.addAction(okAction)
-    
-//    if !FBSDKAccessToken.currentAccessToken().hasGranted("email") {
-    presentViewController(checkInAlert, animated: true, completion: nil)
-//    }
+      checkInAlert.addAction(cancelAction)
+      checkInAlert.addAction(okAction)
+      
+      presentViewController(checkInAlert, animated: true, completion: nil)
+    }
   }
-  
+    
+  func getUserFBDetailsAsync() {
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+      FBSDKGraphRequest(graphPath: "me", parameters: ["fields":"id,first_name,last_name,email"]).startWithCompletionHandler({ (connection: FBSDKGraphRequestConnection!, result: AnyObject!, error: NSError!) -> Void in
+        if error != nil {
+          print(error?.description)
+        } else {
+          print("Fetched facebook user: \(result)")
+          
+          self.fbUserId = result["id"] as? String
+          let fbFirstName = result["first_name"] as! String
+          let fbLastName = result["last_name"] as! String
+          let fbEmail = result["email"] as! String
+          let fbAvatarUrl = "https://graph.facebook.com/\(self.fbUserId!)/picture?type=large&return_ssl_resources=1"
+          
+          self.manager.requestSerializer.setValue("aaiu73nklx0hhb0imn05ipz4dztbnlgonlnhmfjx", forHTTPHeaderField: "X-Auth-Token")
+          let userParameters = [ "user": ["facebook_uid":self.fbUserId!,
+            "email":fbEmail,
+            "first_name":fbFirstName,
+            "last_name":fbLastName,
+            "avatar_url":fbAvatarUrl] ]
+          print(userParameters)
+          self.manager.POST( "http://brisbane-thank-bank.herokuapp.com/api/v1/users",
+            parameters: userParameters,
+            success: { (operation: AFHTTPRequestOperation!,responseObject: AnyObject!) in
+              print("JSON: \(responseObject)")
+              
+              self.saveDefaults()
+            },
+            failure: { (operation: AFHTTPRequestOperation!,error: NSError!) in
+              print("Error: \(error.localizedDescription)")
+          })
+        }
+      })
+    }
+  }
+
   func profileController() {
     let checkInController = ProfileController()
     navigationController?.pushViewController(checkInController, animated: true)
   }
-  
+
   // MARK: - NSUserDefaults
   
   func saveDefaults() {
