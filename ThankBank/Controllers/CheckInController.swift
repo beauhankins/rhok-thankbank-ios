@@ -280,12 +280,25 @@ class CheckInController: UIViewController {
   // MARK - Approval
   
   func approvePhoto() {
+    saveDefaults()
+    
     let chooseRewardController = ChooseRewardController()
     navigationController?.pushViewController(chooseRewardController, animated: true)
   }
   
   func disapprovePhoto() {
     hidePreview()
+  }
+  
+  // MARK: - NSUserDefaults
+  
+  func saveDefaults() {
+    let defaults = NSUserDefaults.standardUserDefaults()
+    
+    let imageData = UIImageJPEGRepresentation(image!, 1.0)
+    let encodedImageData = imageData!.base64EncodedDataWithOptions(.Encoding64CharacterLineLength)
+    
+    defaults.setObject(encodedImageData, forKey: "checkin_image")
   }
   
   // MARK - Navigation

@@ -11,6 +11,10 @@ import UIKit
 
 class MainController: UIViewController {
   
+  let manager = AFHTTPRequestOperationManager()
+  
+  var fbUserId: String?
+  
   lazy var coinImage: UIImageView = {
     let imageView = UIImageView()
     imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -56,7 +60,7 @@ class MainController: UIViewController {
   }
   
   func layoutInterface() {
-    UIApplication.sharedApplication().setStatusBarHidden(true, withAnimation: .Slide)
+    UIApplication.sharedApplication().setStatusBarHidden(false, withAnimation: .Slide)
     
     view.backgroundColor = Colors().BackgroundDark
     
@@ -86,40 +90,77 @@ class MainController: UIViewController {
     let checkInAlert = UIAlertController(title: "Please connect with facebook to win and share your prizes", message: nil, preferredStyle: .Alert)
     
     let cancelAction = UIAlertAction(title: "No Thanks", style: .Cancel, handler: { (action: UIAlertAction!) -> Void in
-      let checkInController = CheckInController()
-      self.navigationController?.pushViewController(checkInController, animated: true)
+      
     })
     let okAction = UIAlertAction(title: "OK", style: .Default, handler: { (action: UIAlertAction!) -> Void in
-      let login = FBSDKLoginManager()
-      login.logInWithPublishPermissions(["publish_actions"]) { (result: FBSDKLoginManagerLoginResult!, error: NSError!) -> Void in
-        if error != nil {
-          // Process error
-        } else if result.isCancelled {
-          // Handle cancellations
-        } else {
-          let checkInController = CheckInController()
-          self.navigationController?.pushViewController(checkInController, animated: true)
-        }
+      
+      if FBSDKAccessToken.currentAccessToken() != nil {
+        FBSDKGraphRequest(graphPath: "me", parameters: ["fields":"id,first_name,last_name,email"]).startWithCompletionHandler({ (connection: FBSDKGraphRequestConnection!, result: AnyObject!, error: NSError!) -> Void in
+          if error != nil {
+            print(error?.description)
+          } else {
+            print("Fetched facebook user: \(result)")
+            
+            self.fbUserId = result["id"] as? String
+            let fbFirstName = result["first_name"] as! String
+            let fbLastName = result["last_name"] as! String
+            let fbEmail = result["email"] as! String
+            let fbAvatarUrl = "https://graph.facebook.com/\(self.fbUserId!)/picture?type=large&return_ssl_resources=1"
+            
+            self.manager.requestSerializer.setValue("aaiu73nklx0hhb0imn05ipz4dztbnlgonlnhmfjx", forHTTPHeaderField: "X-Auth-Token")
+            let userParameters = [ "user": ["facebook_uid":self.fbUserId!,
+              "email":fbEmail,
+              "first_name":fbFirstName,
+              "last_name":fbLastName,
+              "avatar_url":fbAvatarUrl] ]
+            
+            self.manager.POST( "http://brisbane-thank-bank.herokuapp.com/api/v1/users",
+              parameters: userParameters,
+              success: { (operation: AFHTTPRequestOperation!,responseObject: AnyObject!) in
+                print("JSON: \(responseObject)")
+                
+                self.saveDefaults()
+                
+                let checkInController = CheckInController()
+                self.navigationController?.pushViewController(checkInController, animated: true)
+              },
+              failure: { (operation: AFHTTPRequestOperation!,error: NSError!) in
+                print("Error: \(error.localizedDescription)")
+            })
+          }
+        })
       }
+      
+//      let login = FBSDKLoginManager()
+//      login.logInWithReadPermissions(["email"]) { (result: FBSDKLoginManagerLoginResult!, error: NSError!) -> Void in
+//        if error != nil {
+//          // Process error
+//        } else if result.isCancelled {
+//          // Handle cancellations
+//        } else {
+//          
+//        }
+//      }
     })
     
     checkInAlert.addAction(cancelAction)
     checkInAlert.addAction(okAction)
     
+//    if !FBSDKAccessToken.currentAccessToken().hasGranted("email") {
     presentViewController(checkInAlert, animated: true, completion: nil)
-    
-    /*
-    if FBSDKAccessToken.currentAccessToken().hasGranted("publish_actions") {
-      FBSDKGraphRequest(graphPath: "me/feed", parameters: [ "message": "hello world" ], HTTPMethod: "POST").startWithCompletionHandler({ (connection: FBSDKGraphRequestConnection!, result: AnyObject!, error: NSError!) -> Void in
-        let resultId = result["id"]
-        print("Post id: \(resultId)")
-      })
-    }
-    */
+//    }
   }
   
   func profileController() {
     let checkInController = ProfileController()
     navigationController?.pushViewController(checkInController, animated: true)
+  }
+  
+  // MARK: - NSUserDefaults
+  
+  func saveDefaults() {
+    let defaults = NSUserDefaults.standardUserDefaults()
+    
+    defaults.setObject(fbUserId, forKey: "checkin_facebook_uid")
   }
 }

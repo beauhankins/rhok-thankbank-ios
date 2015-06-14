@@ -11,7 +11,9 @@ import UIKit
 
 class ChooseRewardController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
   
-  let rewardsCellIdentifier = "RewardsCell"
+  var retailers = []
+  
+  let retailerRewardsCellIdentifier = "RetailerRewardsCell"
   
   lazy var titleLabel: UILabel = {
     let label = UILabel()
@@ -65,7 +67,7 @@ class ChooseRewardController: UIViewController, UICollectionViewDelegate, UIColl
     collectionView.translatesAutoresizingMaskIntoConstraints = false
     collectionView.backgroundColor = UIColor.clearColor()
     collectionView.showsVerticalScrollIndicator = false
-    collectionView.registerClass(RewardsCell.self, forCellWithReuseIdentifier: self.rewardsCellIdentifier)
+    collectionView.registerClass(RetailerRewardsCell.self, forCellWithReuseIdentifier: self.retailerRewardsCellIdentifier)
     collectionView.delegate = self
     collectionView.dataSource = self
     return collectionView
@@ -74,6 +76,7 @@ class ChooseRewardController: UIViewController, UICollectionViewDelegate, UIColl
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    fetchRewards()
     layoutInterface()
   }
   
@@ -104,23 +107,30 @@ class ChooseRewardController: UIViewController, UICollectionViewDelegate, UIColl
   
   // MARK: - CollectionViewDelegate
   
-  let dummyRetailers = ["Boost Juice", "McDonalds", "JB Hi-Fi", "Tonic Espresso"]
-  
   func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
     return 1
   }
   
   func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return 4
+    return retailers.count
   }
   
   func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
     let i = indexPath.item
     
-    let cell = collectionView.dequeueReusableCellWithReuseIdentifier(rewardsCellIdentifier, forIndexPath: indexPath) as! RewardsCell
+    let cell = collectionView.dequeueReusableCellWithReuseIdentifier(retailerRewardsCellIdentifier, forIndexPath: indexPath) as! RetailerRewardsCell
     
-    cell.headline = dummyRetailers[i]
-    cell.subline = "Your choice of one coupon"
+    cell.headline = String(retailers[i]["name"]!)
+    
+    let coupons = retailers[i]["coupons"] as! NSArray
+    
+    if coupons.count == 1 {
+      cell.subline = "Choose from 1 coupon"
+    } else {
+      cell.subline = "Choose from \(coupons.count) coupons"
+    }
+    
+    cell.image = UIImage(named: String(retailers[i]["logo"]!))
     
     return cell
   }
@@ -128,8 +138,28 @@ class ChooseRewardController: UIViewController, UICollectionViewDelegate, UIColl
   func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
     let i = indexPath.item
     
-    let rewardDetailController = RewardDetailController(retailer: dummyRetailers[i])
+    let coupons = retailers[i]["coupons"] as! [AnyObject]
+    
+    let rewardDetailController = RewardDetailController(coupons: coupons)
     navigationController?.pushViewController(rewardDetailController, animated: true)
+  }
+  
+  // MARK - Networking
+  
+  func fetchRewards() {
+    let dummyRetailers = [["name":"Boost Juice","logo":"boost","coupons":[
+                            ["partner_name":"Boost Juice","partner_logo":"boost","name":"Free Boost juice"]]],
+                          ["name":"McDonalds","logo":"mcdonalds","coupons":[
+                            ["partner_name":"McDonalds","partner_logo":"mcdonalds","name":"Free McChicken"],
+                            ["partner_name":"McDonalds","partner_logo":"mcdonalds","name":"Free Big Mac"],
+                            ["partner_name":"McDonalds","partner_logo":"mcdonalds","name":"Buy one get one free large frozen coke"]]],
+                          ["name":"JB HiFi","logo":"jbhifi","coupons":[
+                            ["partner_name":"JB HiFi","partner_logo":"jbhifi","name":"20% off store-wide"],
+                            ["partner_name":"JB HiFi","partner_logo":"jbhifi","name":"$25 Gift Card"]]],
+                          ["name":"Tonic Espresso","logo":"tonic","coupons":[
+                            ["partner_name":"Tonic Espresso","partner_logo":"tonic","name":"Free cafe latte"],
+                            ["partner_name":"Tonic Espresso","partner_logo":"tonic","name":"Free cappuccino"]]]]
+    retailers = dummyRetailers
   }
   
   // MARK - Navigation
